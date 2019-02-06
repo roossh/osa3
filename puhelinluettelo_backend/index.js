@@ -27,6 +27,7 @@ let persons = [
 
 app.use(bodyParser.json())
 
+//3.1
 app.get('/api/persons', (req, res) => {
     res.json(persons)
 })
