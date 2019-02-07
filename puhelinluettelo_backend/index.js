@@ -32,8 +32,17 @@ const generateId = () => {
 }
 
 
+//3.8
+morgan.token('post', function (req, res) {return JSON.stringify(req.body)})
+app.use(morgan(':method :url :status :response-time ms :post', {
+    skip: function (req, res) { return req.method !== 'POST'}
+}))
+
 //3.7
-app.use(morgan('tiny'))
+app.use(morgan('tiny', {
+    skip: function (req, res) {return req.method === 'POST'}
+}))
+
 app.use(bodyParser.json())
 
 //3.1
