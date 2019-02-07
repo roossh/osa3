@@ -25,6 +25,11 @@ let persons = [
     }
 ]
 
+const generateId = () => {
+    const newId = Math.floor(Math.random() * Math.floor(100))
+    return newId
+}
+
 app.use(bodyParser.json())
 
 //3.1
@@ -55,6 +60,29 @@ app.delete('/api/persons/:id', (req, res) => {
     persons = persons.filter(person => person.id !== id)
 
     res.status(204).end()
+})
+
+//3.5+3.6
+app.post('/api/persons', (req, res) => {
+    const body = req.body
+
+    if (body.name === undefined || body.number === undefined) {
+        return res.status(400).json({error: 'missing name or number'})
+    }
+
+    const person = persons.find(person => person.name.toLowerCase() === body.name.toLowerCase())
+    if (person) {
+        return res.status(400).json({error: 'name must be unique'})
+    }
+
+    const personObject = {
+        name: body.name,
+        number: body.number,
+        id: generateId()
+    }
+
+    persons.concat(personObject)
+    res.json(personObject)
 })
 
 const PORT = 3001
