@@ -27,7 +27,7 @@ let persons = [
 ]
 
 const generateId = () => {
-    const newId = Math.floor(Math.random() * Math.floor(100))
+    const newId = Math.floor(Math.random() * Math.floor(10000))
     return newId
 }
 
