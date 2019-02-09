@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
+const cors = require('cors')
 
 let persons = [
     {
@@ -31,6 +32,8 @@ const generateId = () => {
     return newId
 }
 
+//3.9
+app.use(cors())
 
 //3.8
 morgan.token('post', function (req, res) {return JSON.stringify(req.body)})
