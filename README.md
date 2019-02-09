@@ -10,4 +10,4 @@
 
 ### 3.10-3.11
 
-(Deployattu app löytyy täältä.)[https://warm-depths-78041.herokuapp.com/]
+[Deployattu app löytyy täältä.](https://warm-depths-78041.herokuapp.com/)
