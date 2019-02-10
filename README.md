@@ -16,6 +16,8 @@
 
 [Tietokantaa käyttävä versio](https://phonebook-hy.herokuapp.com/)
 
+Source code masterissa.
+
 ### 3.22
 
 ESLintiä käyttävä versio löytyy täältä.
